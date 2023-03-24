@@ -1,0 +1,45 @@
+﻿@using TestTaskWeb.DTO
+@model PlayerDto
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h1>Редактировать игрока</h1>
+    <form asp-action="EditPlayer" asp-controller="Home" asp-anti-forgery="true">
+        <div>
+            <label asp-for="Surname"> Фамилия</label><br />
+            <input asp-for="Surname"/>
+            <span asp-validation-for="Surname" />
+        </div>
+        <div>
+            <label asp-for="Name">Имя</label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Patronymic">Отчество</label><br />
+            <input type="text" asp-for="Patronymic" />
+            <span asp-validation-for="Patronymic" />
+        </div>
+        <div>
+            <label asp-for="StatusType">Статус</label><br />
+            <input type="text" asp-for="StatusType" />
+            <span asp-validation-for="StatusType" />
+        </div>
+        <div>
+            <label asp-for="Balance">Баланс</label><br />
+            <input type="text" asp-for="Balance" />
+            <span asp-validation-for="Balance" />
+        </div>
+        <div>
+            <label asp-for="RegistrationDate">Дата регистрации</label><br />
+            <input type="text" asp-for="RegistrationDate" />
+            <span asp-validation-for="RegistrationDate" />
+        </div>
+
+        <div>
+            <input type="submit" value="Редактировать" />
+        </div>
+    </form>
+</div>

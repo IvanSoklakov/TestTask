@@ -1,0 +1,48 @@
+﻿@using TestTaskWeb.DTO
+@model List<PlayerDto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+    <h1>Игроки</h1>
+    <a asp-controller="Home" asp-action="AddPlayer" class="button-large">Добавить</a>
+</div>
+<div class="container">
+    <div class="row">
+        <table>
+            <tr>
+               <thead>
+                <th>ФИО</th>
+                <th>Баланс</th>
+                <th>Дата регистрации</th>
+                <th>Статус</th>
+               </thead>
+            </tr>
+            <hr>
+            @foreach (var entity in Model)
+            {
+                <div class="col-3 col-6-medium col-12-small">
+                    <tbody>
+                          <tr>
+                              <td>@entity.Surname @entity.Name @entity.Patronymic</td>
+                              <td>@entity.Balance</td>
+                              
+                              <td>@entity.RegistrationDate</td>
+                              <td>@entity.StatusType</td>
+                              <td>
+                                 <details>
+                                    <summary>Подробнее</summary>
+                                    Подробности о игроке                                
+                                 </details>
+                              <td>
+                        <td> <a asp-controller="Home" asp-action="EditPlayer" asp-route-id="@entity.Id" asp-route-surname="@entity.Surname" asp-route-name="@entity.Name" asp-route-patronumic="@entity.Patronymic" asp-route-balance="@entity.Balance" asp-route-status="@entity.StatusType" asp-route-balance="@entity.Balance" asp-route-registrationDate="@entity.RegistrationDate" RegistrationDateclass="button-large">Редактировать</a></td>
+                              <td> <a asp-controller="Home" asp-action="DeletePlayer" asp-route-id="@entity.Id" class="button-large">Удалить</a></td>                  
+                          </tr>
+                    </tbody>
+                </div>
+            }
+        </table>
+    </div>
+</div>
+
